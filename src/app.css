@@ -11,3 +11,8 @@ html, body {
     margin: 0;
     height: 100%;
 }
+
+.text-dynamic {
+    font-size: min(1vmin, 0.5rem);
+  }
+  
