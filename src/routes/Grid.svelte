@@ -1,10 +1,14 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
   import Square from "./Square.svelte";
 
   export let grid: string[];
+  export let found: string[];
 
   let a = -1;
   let b = -1;
+
+  const dispatch = createEventDispatcher();
   let reset_timeout: ReturnType<typeof setTimeout>;
 </script>
 <div class="grid grid-cols-4 grid-rows-4 h-full gap-[0.5em]">
@@ -22,6 +26,9 @@
 
                 if (grid[a] === grid[b]) {
                   // correct
+                  dispatch('found', {
+                    emoji
+                  })
                 } else {
                   // incorrect
                   reset_timeout = setTimeout(() => {
@@ -33,7 +40,9 @@
                 a = i;
               }
             }
-          }/>
+          }
+          found={found.includes(emoji)}
+          />
     {/each}
 
 </div>
