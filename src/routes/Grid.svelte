@@ -11,7 +11,7 @@
   const dispatch = createEventDispatcher();
   let reset_timeout: ReturnType<typeof setTimeout>;
 </script>
-<div class="grid grid-cols-4 grid-rows-4 h-full gap-[0.5em]">
+<div id="grid" class="grid grid-cols-4 grid-rows-4 h-full gap-[0.5em]">
     {#each grid as emoji, i}
         <Square 
           {emoji}
@@ -46,3 +46,9 @@
     {/each}
 
 </div>
+
+<style>
+  #grid {
+    perspective: 100vw;
+  }
+</style>
